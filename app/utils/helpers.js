@@ -8,7 +8,12 @@ module.exports = {
     },
     //returns a promise object we can .then() off inside our parent component
     //this method also takes in an argument for what to post to the database
-    saveArticles: function(savedArticle) {
-        return axios.post('/api', savedArticle);
+    saveArticles: function(addArticle) {
+        return axios.post('/api', addArticle);
+    },
+    //returns a promise object we can .then() off inside our parent component
+    //this method also takes in an argument for what to delete in the database
+    deleteArticles: function(removeArticle) {
+        return axios.delete('/api', removeArticle);
     }
 };
