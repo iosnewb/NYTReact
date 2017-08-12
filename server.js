@@ -58,20 +58,16 @@ app.get('/api', function(req, res) {
 });
 
 app.post('/api', function(req, res) {
-    var newArticle = {
-        title: req.body.title,
-        date: req.body.date,
-        url: req.body.url
-    }
-    Articles.insertMany(newArticle, function(err, doc) {
+    var newArticle = req.body;
+
+    Articles.create(newArticle, function(err, doc) {
         res.send("Articles were added");
     });
 });
 
 app.delete('/api', function(req, res) {
-    var removedArticle = {
-        title: req.body.title
-    }
+    var removedArticle = req.body.title;
+
     Articles.remove(removedArticle, function(err, doc) {
         res.send("Article has been removed");
     })
